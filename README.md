@@ -9,3 +9,4 @@ A buffer overflow in an FPGA design occurs when a buffer is accessed with an off
 2 always @(posedge clk) 
 3   mybuf[offset] <= value;   // offset >= N
 ```
+Line 1 defines a buffer named mybuf consisting of N single-bit elements; mybuf [N-1:0] can be legally indexed from 0 to N-1 (inclusive). On Line 3, the snippet uses offset to assign a bit of mybuf to a value; however, the value of offset is greater than N and therefore overflows mybuf.
