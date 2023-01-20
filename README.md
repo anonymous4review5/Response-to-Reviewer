@@ -3,7 +3,7 @@
 We take the mutation operator DMI in Group: Data Mis-Access as an example.
 This mutation operator DMI is derived from the real bug Misindexing.
 ## Bug Description:
-A misindexing bug occurs when a developer uses an incorrect index to extract information from a variable. For example, the IEEE754 [22] standard defines the binary layout of 32-bit floating point, where the bits [22:0] are the fraction and the bits [30:23] are the exponent. However, in an implementation of floating point adder, the developer incorrectly extracted bits [23:0] as the fraction in a floating point adder, which lead to the wrong output value.
+A misindexing bug occurs when a developer uses an incorrect index to extract information from a variable. For example, the IEEE754 [https://doi.org/10.1109/IEEESTD.1985.82928] standard defines the binary layout of 32-bit floating point, where the bits [22:0] are the fraction and the bits [30:23] are the exponent. However, in an implementation of floating point adder, the developer incorrectly extracted bits [23:0] as the fraction in a floating point adder, which lead to the wrong output value.
 ### Bug Source:
 Verilog-axis(Verilog AXI Stream Components): https://github.com/alexforencich/verilog-axis/commit/76c805e4167c1065db0a7cdec711b30c1e11da91#diff-09b0ecbe0779c53e7a28b0d57be6ca8bd2f6224a339902399abed42ee0338d57
 
