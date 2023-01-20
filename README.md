@@ -4,11 +4,10 @@ We take the mutation operator DMI in Group: Data Mis-Access as an example.
 This mutation operator DMI is derived from the real bug Misindexing.
 ## Bug Description:
 A misindexing bug occurs when a developer uses an incorrect index to extract information from a variable.
-```Verilog
-1 reg mybuf [N-1:0];   // a buffer with N 1-bit elements 
-2 always @(posedge clk) 
-3   mybuf[offset] <= value;   // offset >= N
-```
+### Bug Source:
+Verilog-axis(Verilog AXI Stream Components): https://github.com/alexforencich/verilog-axis/commit/76c805e4167c1065db0a7cdec711b30c1e11da91#diff-09b0ecbe0779c53e7a28b0d57be6ca8bd2f6224a339902399abed42ee0338d57
+A misindexing bug occurs when a developer uses an incorrect index to extract information from a variable.
+
 Line 1 defines a buffer named mybuf consisting of N single-bit elements; mybuf [N-1:0] can be legally indexed from 0 to N-1 (inclusive). On Line 3, the snippet uses offset to assign a bit of mybuf to a value; however, the value of offset is greater than N and therefore overflows mybuf.
 
 ## Mutation Operator Design:
