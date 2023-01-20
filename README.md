@@ -1,7 +1,7 @@
 # Question: Could you provide a concrete example on how a real bug influence mutation operator design?
 # Response-to-Review: 
 We take the mutation operator **DMI** in **Group: Data Mis-Access** as an example.
-This mutation operator DMI is derived from the real bug **Misindexing**.
+This mutation operator **DMI** is derived from the real bug **Misindexing**.
 ## Bug Description:
 A misindexing bug occurs when a developer uses an incorrect index to extract information from a variable. For example, the IEEE754 [https://doi.org/10.1109/IEEESTD.1985.82928] standard defines the binary layout of 32-bit floating point, where the bits [22:0] are the fraction and the bits [30:23] are the exponent. However, in an implementation of floating point adder, the developer incorrectly extracted bits [23:0] as the fraction in a floating point adder, which lead to the wrong output value.
 ### Bug Source:
