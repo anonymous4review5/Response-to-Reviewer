@@ -8,7 +8,7 @@ A misindexing bug occurs when a developer uses an incorrect index to extract inf
 Real bugs from GitHub projects shows misindexing, and the commits details are presented below.
 Verilog-axis(Verilog AXI Stream Components): https://github.com/alexforencich/verilog-axis/commit/76c805e4167c1065db0a7cdec711b30c1e11da91#diff-09b0ecbe0779c53e7a28b0d57be6ca8bd2f6224a339902399abed42ee0338d57
 
-### Synthetic Code
+### Real-world code snippets
 ```verilog
 // Line 228
 assign int_s_axis_tready[m] = int_axis_tready[select_reg*M_COUNT+m] || drop_reg; 
@@ -21,6 +21,8 @@ wire s_axis_tvalid_mux = int_axis_tvalid[grant_encoded*S_COUNT+n] && grant_valid
 
 ## Mutation Operator Design:
 Based on the above bug description, mutation operator DMI is designed to reproduce this bug by implementing misindexing. The parameter of DMI is a new index value for extracting information from a variable, which means a new offset size that can implement misindexing. For an assignment statement, DMI parses the set of variables on the right side of the statement and modify the index of information extraction for variables where information extraction occurs. DMI adds or subtracts a value for the current information extraction index in practice, provided no buffer overflow occurs. We present a basic code snippet for simplicity from project reed_solomon_decoder/BM_lamda.v (https://github.com/hammad-a/verilog_repair/blob/master/benchmarks/opencores/reed_solomon_decoder/BM_lamda.v), which belongs to the benchmark in our paper. 
+
+### Real-world code snippets
 
 ```verilog
 // Correct Code
