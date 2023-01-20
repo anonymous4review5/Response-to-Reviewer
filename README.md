@@ -23,7 +23,7 @@ wire s_axis_tvalid_mux = int_axis_tvalid[grant_encoded*S_COUNT+n] && grant_valid
 Based on the above bug description, mutation operator DMI is designed to reproduce this bug by implementing misindexing. The parameter of DMI is a new index value for extracting information from a variable, which means a new offset size that can implement misindexing. For an assignment statement, DMI parses the set of variables on the right side of the statement and modify the index of information extraction for variables where information extraction occurs. DMI adds or subtracts a value for the current information extraction index in practice, provided no buffer overflow occurs. We present a basic code snippet for simplicity from project reed_solomon_decoder/BM_lamda.v (https://github.com/hammad-a/verilog_repair/blob/master/benchmarks/opencores/reed_solomon_decoder/BM_lamda.v), which belongs to the benchmark in our paper. 
 
 ```verilog
-// Coeerct Code
+// Correct Code
 if (cnt == 0)
 begin
     D<= S[K+e_cnt];
