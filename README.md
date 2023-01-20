@@ -44,7 +44,7 @@ begin
   end
 else if (cnt < 5)
   begin
-    add_pow1<= L[cnt+2]; \\DMI mutates the L[cnt+1] to L[cnt+2]
+    add_pow1<= L[cnt+2]; //DMI mutates the L[cnt+1] to L[cnt+2]
     add_pow2<= S[K+e_cnt-cnt];
     div1<=0;
     add_1<= pow1 + pow2;
