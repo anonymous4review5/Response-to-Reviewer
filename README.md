@@ -11,11 +11,11 @@ Verilog-axis(Verilog AXI Stream Components): https://github.com/alexforencich/ve
 ### Synthetic Code
 ```verilog
 // Line 228
-assign int_s_axis_tready[m] = int_axis_tready[select_reg*M_COUNT+m] || drop_reg; //M_COUNT should be S_COUNT
+assign int_s_axis_tready[m] = int_axis_tready[select_reg*M_COUNT+m] || drop_reg; 
+//M_COUNT should be S_COUNT, misindexing of the information extraction from int_axis_tready
 
 // Line 296
 wire s_axis_tvalid_mux = int_axis_tvalid[grant_encoded*S_COUNT+n] && grant_valid; //S_COUNT should be M_COUNT
-
 ```
 
 ## Mutation Operator Design:
